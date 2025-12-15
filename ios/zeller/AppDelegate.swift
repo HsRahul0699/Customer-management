@@ -40,7 +40,19 @@ class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
 
   override func bundleURL() -> URL? {
 #if DEBUG
-    RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+    // Try to get the bundle URL from the provider
+    if let url = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index") {
+      return url
+    }
+    
+    // Fallback: Try to construct the URL manually for localhost
+    // This helps when Metro is running but the provider can't detect it
+    if let localhostURL = URL(string: "http://localhost:8081/index.bundle?platform=ios&dev=true") {
+      return localhostURL
+    }
+    
+    // If still nil, try 127.0.0.1 as fallback
+    return URL(string: "http://127.0.0.1:8081/index.bundle?platform=ios&dev=true")
 #else
     Bundle.main.url(forResource: "main", withExtension: "jsbundle")
 #endif

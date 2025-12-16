@@ -23,10 +23,10 @@ This project can be run using either Yarn or npm.
 
 ### Install dependencies
 
-**Using npm**
+**Using yarn**
 
 ```bash
-npm install
+yarn install
 ```
 
 ### iOS Setup
@@ -68,13 +68,13 @@ Some basic tests are included for:
 **Run tests using:**
 
 ```bash
-npm test
+yarn test
 ```
 
 **Run tests on a specific file example**
 
 ```bash
-npm test useAddCustomerHook.test.ts
+yarn test useAddCustomerHook.test.ts
 ```
 
 All tests are organized in the `__tests__/` directory:
@@ -116,11 +116,12 @@ The app connects to AWS AppSync for GraphQL queries. Configuration is stored in:
 ## Clean Project Guidelines
 
 - `node_modules` is not committed
+- `local.properties` is not committed
 - Only required dependencies and files are included
 - The project runs without errors on a clean install using:
 
 ```bash
-npm install
+yarn install
 ```
 
 ### Pod Install Issues

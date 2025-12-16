@@ -116,7 +116,9 @@ The app connects to AWS AppSync for GraphQL queries. Configuration is stored in:
 ## Clean Project Guidelines
 
 - `node_modules` is not committed
-- `local.properties` is not committed
+- `android/local.properties` is not committed as it contains machine-specific paths
+- On a fresh clone, Android Studio will automatically generate `local.properties`
+- If you see `SDK location not found`, ensure the Android SDK is installed and the `ANDROID_HOME` environment variable is set
 - Only required dependencies and files are included
 - The project runs without errors on a clean install using:
 

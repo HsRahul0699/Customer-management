@@ -42,6 +42,7 @@ npm-debug.log
 yarn-error.log
 
 ios/Podfile.lock
+
 package-lock.json
 
 # fastlane
